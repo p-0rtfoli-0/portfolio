@@ -1,0 +1,170 @@
+.page {
+  --description-size: 24px;
+  padding: 92px 140px 100px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Height is the title's: agency badges sit on its baseline and overhang upwards, as in the mockups. */
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  height: 30px;
+  margin-bottom: 68px;
+}
+
+.header h1 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 30px;
+  margin-bottom: 100px;
+  font-size: var(--description-size);
+  line-height: 1;
+}
+
+.introSingle {
+  grid-template-columns: 1fr;
+  max-width: 570px;
+}
+
+.introCol {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 570px;
+}
+
+/* Keeps the lead and the left description in the first column, so the right column lines up with the latter. */
+.introLeft {
+  grid-column: 1;
+}
+
+/* A single "\n" inside a paragraph is a line break, as in the mockups. */
+.introCol p {
+  white-space: pre-line;
+}
+
+/* Markers hang outside the column, so item text lines up with paragraphs. */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.list li {
+  list-style: disc outside;
+}
+
+.caseLink {
+  align-self: flex-start;
+  text-decoration: underline;
+  font-size: calc(var(--description-size) - 4px);
+  font-weight: 700;
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Subheading + description between images; 40px flex gap + 44px = 84px around it, as in the mockup. */
+.textBlock {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  padding-block: 44px;
+  font-size: var(--description-size);
+  line-height: 1;
+}
+
+.textBlock h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.sectionImage {
+  width: 100%;
+  height: auto;
+}
+
+/* 40px flex gap + 60px = 100px between image groups. */
+.groupStart {
+  margin-top: 60px;
+}
+
+.stub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.stubImage {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+.stubCategory {
+  color: var(--foreground-muted);
+}
+
+@media (max-width: 1200px) {
+  .page {
+    --description-size: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .textBlock {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-block: 24px;
+    line-height: 1.3;
+  }
+
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 64px;
+    line-height: 1.3;
+  }
+
+  .introSingle,
+  .introCol {
+    max-width: none;
+  }
+
+  .introCol {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    --description-size: 18px;
+    padding: 32px 24px 64px;
+  }
+
+  .header {
+    flex-wrap: wrap;
+    align-items: center;
+    height: auto;
+    margin-bottom: 40px;
+  }
+}

@@ -1,0 +1,340 @@
+export type ProjectCaseImage = {
+  image: string;
+  width: number;
+  height: number;
+  alt: string;
+  /** Starts a new group of images: gets a larger gap above it. */
+  groupStart?: boolean;
+};
+
+/**
+ * Text between images: a subheading on the left with its description on the
+ * right (e.g. a second part of the case), or, without a heading, a caption in
+ * the left column.
+ */
+export type ProjectCaseTextBlock = {
+  heading?: string;
+  /** Paragraphs separated by a blank line. */
+  text: string;
+};
+
+export type ProjectCaseSection = ProjectCaseImage | ProjectCaseTextBlock;
+
+export type Agency = "narrators" | "superdudes";
+
+export type ProjectCaseContent = {
+  /** Heading on the case page when it differs from the card title. */
+  heading?: string;
+  /** Agency the project was made with, shown as a badge next to the heading. */
+  agency?: Agency;
+  /** Left-column text above the two description columns; the right column starts level with descriptionLeft. */
+  descriptionLead?: string;
+  descriptionLeft: string;
+  descriptionRight?: string;
+  caseUrl?: string;
+  sections: ProjectCaseSection[];
+};
+
+export type Project = {
+  slug: string;
+  title: string;
+  category: string;
+  cardImage: string;
+  cardWidth: number;
+  cardHeight: number;
+  caseContent?: ProjectCaseContent;
+};
+
+export const PROJECTS: Project[] = [
+  {
+    slug: "rostovskiy-kreml",
+    title: "Ростовский Кремль",
+    category: "айдентика",
+    cardImage: "/images/home/rostovskiy-kreml.png",
+    cardWidth: 374,
+    cardHeight: 271,
+    caseContent: {
+      agency: "narrators",
+      descriptionLeft:
+        "Ростовский кремль — один из важнейших памятников древнерусского зодчества, задуманный митрополитом Ионией Сысоевичем как земное отражение Небесного града.\n\nПроект был направлен на переосмысление исторического наследия кремля и его воплощение в современной, гибкой визуальной системе.",
+      descriptionRight:
+        "Вместо того чтобы буквально воспроизводить архитектуру, мы искали визуальные коды в самом пространстве. Центральным мотивом стала птица — символ, встречающийся на гербах и печатях Ростова, в декоративных деталях кремля и в окружающей природе.\n\nИдентичность строится на идее отражения: кремль отражается в воде, история — в настоящем, а символ — в самом себе. Четыре зеркально отражённые птицы образуют орнамент, а тот же принцип формирует графический язык, вдохновлённый фресками кремлёвских церквей.",
+      caseUrl: "https://dprofile.ru/case/194879/rostovskii-kreml-aidentika",
+      sections: [
+        { image: "/images/projects/rostovskiy-kreml/logotip-tisnenie.png", width: 1158, height: 651, alt: "Логотип, тиснение" },
+        { image: "/images/projects/rostovskiy-kreml/surguchnaya-pechat.png", width: 1158, height: 651, alt: "Сургучная печать" },
+        { image: "/images/projects/rostovskiy-kreml/afishi-na-ulitse.png", width: 1158, height: 651, alt: "Афиши на улице" },
+        { image: "/images/projects/rostovskiy-kreml/vse-postery.png", width: 1158, height: 651, alt: "Все постеры" },
+        { image: "/images/projects/rostovskiy-kreml/sotsseti.png", width: 1158, height: 651, alt: "Оформление соцсетей" },
+        { image: "/images/projects/rostovskiy-kreml/platok.png", width: 1158, height: 651, alt: "Платок" },
+        { image: "/images/projects/rostovskiy-kreml/buklet.png", width: 1154, height: 649, alt: "Буклет" },
+        { image: "/images/projects/rostovskiy-kreml/ikonki.png", width: 1156, height: 650, alt: "Иконки" },
+        { image: "/images/projects/rostovskiy-kreml/slide-679.png", width: 1156, height: 650, alt: "Фотографии кремля" },
+        { image: "/images/projects/rostovskiy-kreml/slide-841.png", width: 1160, height: 652, alt: "Свеча" },
+        { image: "/images/projects/rostovskiy-kreml/slide-850.png", width: 1160, height: 644, alt: "Худи с вышивкой" },
+      ],
+    },
+  },
+  {
+    slug: "yandex-agency-friends",
+    title: "Yandex Agency Friends",
+    category: "event",
+    cardImage: "/images/home/yandex-agency-friends.png",
+    cardWidth: 374,
+    cardHeight: 271,
+    caseContent: {
+      heading: "AGENCY FRIENDS",
+      agency: "narrators",
+      descriptionLeft:
+        "Вечеринка для агентств, которые работают с Яндекс.Рекламой\n\nДизайн носителей в фирменном стиле, визуализация, предпечатная подготовка",
+      sections: [
+        { image: "/images/projects/yandex-agency-friends/kv-glavnyy.png", width: 1158, height: 651, alt: "Ключевой визуал «Agency Friends»" },
+        { image: "/images/projects/yandex-agency-friends/fotografii-s-meropriyatiya.png", width: 1158, height: 565, alt: "Фотографии с мероприятия" },
+        { image: "/images/projects/yandex-agency-friends/kv-retro-avto.png", width: 1160, height: 653, alt: "Ключевой визуал — ретро-автомобиль" },
+        { image: "/images/projects/yandex-agency-friends/beydzhi-uchastnikov.png", width: 1155, height: 650, alt: "Бейджи участников" },
+        { image: "/images/projects/yandex-agency-friends/afishi-na-ulitse.png", width: 1160, height: 653, alt: "Афиши на улице" },
+        { image: "/images/projects/yandex-agency-friends/foto-s-vecherinki.png", width: 1160, height: 778, alt: "Фотографии с вечеринки" },
+      ],
+    },
+  },
+  {
+    slug: "capaco",
+    title: "Capaco",
+    category: "айдентика",
+    cardImage: "/images/home/capaco.png",
+    cardWidth: 374,
+    cardHeight: 271,
+    caseContent: {
+      agency: "narrators",
+      descriptionLeft:
+        "С нуля упаковали бренд производителя пластиковых крышек.\n\nНовый завод в ОАЭ получил лаконичный нейм CAPACO: CAps PAckaging COmpany. Доступно носителям любого языка.\n\nМинимализм, модульность и промышленная эстетика — основа визуала нового бренда. Приземистый гротеск, строгая сетка и геометрия символа отражают производственную экспертизу компании. Продумали все точки контакта — от самой упаковки до транспорта, который её развозит и цифровых интерфейсов.",
+      caseUrl: "https://dprofile.ru/case/149869/capaco",
+      sections: [
+        { image: "/images/projects/capaco/zagolovok.png", width: 1160, height: 653, alt: "Заголовок проекта" },
+        { image: "/images/projects/capaco/brendbuk.png", width: 1159, height: 638, alt: "Брендбук" },
+        { image: "/images/projects/capaco/buklet-i-identika.png", width: 1156, height: 657, alt: "Буклет и айдентика" },
+        { image: "/images/projects/capaco/sayt.png", width: 1156, height: 650, alt: "Сайт и цифровые интерфейсы" },
+        { image: "/images/projects/capaco/upakovka.png", width: 1152, height: 833, alt: "Упаковка" },
+        { image: "/images/projects/capaco/brendirovanie-furgona.png", width: 1156, height: 650, alt: "Брендирование фургона" },
+        { image: "/images/projects/capaco/spetsodezhda.png", width: 1156, height: 569, alt: "Спецодежда" },
+        { image: "/images/projects/capaco/naruzhnye-nositeli.png", width: 1156, height: 677, alt: "Наружная реклама" },
+        { image: "/images/projects/capaco/merch.png", width: 1156, height: 667, alt: "Мерч" },
+      ],
+    },
+  },
+  {
+    slug: "diksi-brat",
+    title: "Дикси × Брат",
+    category: "коллаборация",
+    cardImage: "/images/home/diksi-brat.png",
+    cardWidth: 374,
+    cardHeight: 271,
+    caseContent: {
+      agency: "narrators",
+      descriptionLeft:
+        "Запустили коллаборацию Дикси × Брат: сделали кей вижуал, рассказывающий о конкурсе и мерче, разработали оформление флагманского магазина.\n\nВыбрали VHS-эстетику для визуалов и создали несколько интересных локаций.",
+      descriptionRight:
+        "Разработка KV, дизайн физических носителей, визуализация локаций, предпечатная подготовка, нейрогенерация фотоматериалов",
+      sections: [
+        { image: "/images/projects/diksi-brat/afishi-na-ulitse.png", width: 1160, height: 653, alt: "Афиши «Дикси × Брат» на улице" },
+        { image: "/images/projects/diksi-brat/vhs-i-pos-v-magazine.png", width: 1158, height: 778, alt: "VHS-инсталляция и POS-материалы в магазине" },
+        { image: "/images/projects/diksi-brat/instalyatsiya-vhs.png", width: 1162, height: 774, alt: "Инсталляция в стиле VHS с креслом режиссёра" },
+        { image: "/images/projects/diksi-brat/vizualizatsiya-lokatsii.png", width: 1128, height: 921, alt: "Визуализация фирменной локации в магазине" },
+        { image: "/images/projects/diksi-brat/detali-aktivatsii.png", width: 1164, height: 673, alt: "Детали активации — экраны, стаканчики, вывеска" },
+      ],
+    },
+  },
+  {
+    slug: "rox",
+    title: "Rox",
+    category: "key visual",
+    cardImage: "/images/home/rox.png",
+    cardWidth: 374,
+    cardHeight: 271,
+    caseContent: {
+      agency: "narrators",
+      descriptionLeft:
+        "Создали образ бренда, который считывает целевая аудитория. Сформировали рамку слоганов на основе «дико», сделали KV и ресайзы.",
+      descriptionRight: "Дизайн KV и баннеров, ресайзы, генерация фотоматериалов",
+      sections: [
+        { image: "/images/projects/rox/kv-diko-krutoy.png", width: 1158, height: 651, alt: "Ключевой визуал «Дико крутой»" },
+        { image: "/images/projects/rox/kv-diko-seriya.png", width: 1157, height: 656, alt: "Баннеры «Дико крутой», «выгодное», «красивый», «комфортный»" },
+        { image: "/images/projects/rox/storis-adaptatsii.png", width: 1157, height: 567, alt: "Сторис-адаптации баннеров" },
+        { image: "/images/projects/rox/kv-diko-krasivyy.png", width: 1162, height: 654, alt: "Баннер «Дико красивый»" },
+        { image: "/images/projects/rox/kv-diko-komfortnyy.png", width: 1162, height: 654, alt: "Баннер «Дико комфортный»" },
+        { image: "/images/projects/rox/kv-diko-vygodnyy.png", width: 1162, height: 654, alt: "Баннер «Дико выгодный в апреле»" },
+        { image: "/images/projects/rox/kv-s-tsenoy.png", width: 1162, height: 654, alt: "Баннер с ценой" },
+      ],
+    },
+  },
+  {
+    slug: "sovkombank",
+    title: "Совкомбанк",
+    category: "рекламная кампания",
+    cardImage: "/images/home/sovkombank.png",
+    cardWidth: 374,
+    cardHeight: 271,
+    caseContent: {
+      agency: "narrators",
+      descriptionLeft:
+        "Обновили подход к вёрстке статичных и анимационных макетов для традиционных размещений. Сделали подачу офферов более заметной и современно переосмыслили композицию макетов. Улучшили анимацию: для коротких форматов сделали её сдержаннее, а для длинных — более динамичной. Добавили больше креативных и юмористических решений в визуальную подачу.",
+      sections: [
+        { image: "/images/projects/sovkombank/kv-10-mesyatsev-i-halva.png", width: 1161, height: 591, alt: "Баннеры «10 месяцев без %» и «Халва»" },
+        { image: "/images/projects/sovkombank/kv-10-mesyatsev-krupno.png", width: 1160, height: 580, alt: "Баннер «10 месяцев без %» — крупный формат" },
+        { image: "/images/projects/sovkombank/wealth-management-kv1.png", width: 1161, height: 579, alt: "Sovcombank Wealth Management — «Благосостояние, создающее свободу»" },
+        { image: "/images/projects/sovkombank/wealth-management-kv2.png", width: 1161, height: 580, alt: "Sovcombank Wealth Management — вариант с автомобилем в пустыне" },
+        { image: "/images/projects/sovkombank/kv-halva-rassrochka.png", width: 1160, height: 580, alt: "Баннер «Халва» — рассрочка 24 месяца" },
+      ],
+    },
+  },
+  {
+    slug: "pik",
+    title: "ПИК",
+    category: "спецпроекты",
+    cardImage: "/images/home/pik.png",
+    cardWidth: 374,
+    cardHeight: 271,
+    caseContent: {
+      agency: "narrators",
+      descriptionLeft:
+        "(Летние каникулы, зимние каникулы, каток, открытие школы и др.)\n\nСобытия для жителей жилых комплексов ПИК, которые объединяют соседей, создают поводы для общения и делают повседневную жизнь в районе насыщеннее.",
+      descriptionRight: "Дизайн KV, носителей, предпечатная подготовка, визуализация локаций",
+      sections: [
+        { image: "/images/projects/pik/vse-ustroeno-ustraivaytes.png", width: 1162, height: 3087, alt: "Летний ивент «Всё устроено — устраивайтесь»" },
+        { image: "/images/projects/pik/pik-kanikuly.png", width: 1164, height: 2289, alt: "Ивент «ПИК каникулы»", groupStart: true },
+        { image: "/images/projects/pik/istoriya-v-kazhdoy-detali.png", width: 1160, height: 3010, alt: "Ивент «История в каждой детали» — открытие школы", groupStart: true },
+      ],
+    },
+  },
+  {
+    slug: "vk-strimmur",
+    title: "VK Стриммур",
+    category: "",
+    cardImage: "/images/home/vk-strimmur.png",
+    cardWidth: 374,
+    cardHeight: 271,
+    caseContent: {
+      agency: "narrators",
+      descriptionLeft:
+        "СтриММур — онлайн-стрим из котодома фонда «Ника» на площадках VK Видео и VK Play Live, объединивший заботу о животных, развлечения и выступления популярных артистов.",
+      descriptionRight: "Дизайн KV, логотипа, заставок, материалов для стрима",
+      sections: [
+        { image: "/images/projects/vk-strimmur/strimmur-kv-i-programma.png", width: 1165, height: 1955, alt: "СтриММур — афиша и программа эфиров" },
+        { image: "/images/projects/vk-strimmur/strimmur-foto-so-strima.png", width: 1222, height: 722, alt: "СтриММур — кадры со стрима" },
+        {
+          heading: "Мамин лайк",
+          text: "Дизайн носителей в фирменном стиле, допечатная подготовка\n\nСоздали инфоповод на день Матери. Сделали большие мягкие сердца, поставили их в центре Москвы и Санкт-Петербурга, предлагали людям с ними сфотографироваться, раздавали тематические стикеры, а также обеспечили подсветку в социальных сетях инфлюенсеров.",
+        },
+        { image: "/images/projects/vk-strimmur/mamin-layk-serdtse.png", width: 1160, height: 3027, alt: "Мамин лайк — активация «Сердце»" },
+      ],
+    },
+  },
+  {
+    slug: "maccoffee",
+    title: "MacCoffee",
+    category: "креативная концепция",
+    cardImage: "/images/home/maccoffee.png",
+    cardWidth: 374,
+    cardHeight: 271,
+    caseContent: {
+      agency: "narrators",
+      descriptionLeft:
+        "Креативная концепция для продукта MacCoffee Cappuccino di Torino\n\nТвоё время — это время, которое ты можешь посвятить только себе, своему удовольствию, настроению и перезарядке.\nВ каждом дне можно найти время, чтобы позаниматься тем, что любишь и насладиться вкусным кофе, которое идеально дополнит этот момент наедине с собой.\n\nНаши герои занимаются любимыми делами и проводят me-time с чашечкой ароматного Сappuccino di torino.\n\nВ визуалах используем теплую пленочную стилистику, передаем атмосферу спокойствия и уюта.",
+      sections: [
+        { image: "/images/projects/maccoffee/kv-koritsa.png", width: 1160, height: 653, alt: "KV «Твоё время» — ароматная корица" },
+        { image: "/images/projects/maccoffee/kv-tyomniy-shokolad-uyut.png", width: 1160, height: 653, alt: "KV «Твоё время» — тёмный шоколад, уют" },
+        { image: "/images/projects/maccoffee/kv-tyomniy-shokolad-muzyka.png", width: 1160, height: 653, alt: "KV «Твоё время» — тёмный шоколад, музыка" },
+        { image: "/images/projects/maccoffee/kv-italyanskoe-udovolstvie-rim.png", width: 1160, height: 653, alt: "KV «Чашечка итальянского удовольствия» — Рим" },
+        { image: "/images/projects/maccoffee/kv-italyanskoe-udovolstvie-italiya.png", width: 1160, height: 653, alt: "KV «Чашечка итальянского удовольствия» — Италия" },
+        { image: "/images/projects/maccoffee/kv-vse-dorogi.png", width: 1160, height: 653, alt: "KV «Все дороги ведут к нему»" },
+        { image: "/images/projects/maccoffee/kv-italiya-v-chashke.png", width: 1160, height: 653, alt: "KV «Италия в каждой чашке»" },
+      ],
+    },
+  },
+  {
+    slug: "youtravel-me",
+    title: "Youtravel.me",
+    category: "рекламная кампания",
+    cardImage: "/images/home/youtravel-me.png",
+    cardWidth: 374,
+    cardHeight: 271,
+    caseContent: {
+      agency: "narrators",
+      descriptionLeft:
+        "Запустили новую рекламную кампанию, которая выделила бренд авторских туров на фоне конкурентов и оставила эмоциональный отклик.\n\nГлавный образ кампании — лицо человека, его эмоция: он разделяет момент, растворяется в нём. Весь контент был сделан с помощью нейросетей.",
+      descriptionRight:
+        "Дизайн KV и баннеров, ресайзы, генерация фотоматериалов, раскадровка для видеоролика",
+      sections: [
+        { image: "/images/projects/youtravel-me/kv-menyaet-navsegda.png", width: 1156, height: 650, alt: "KV «Тот самый момент… когда отпуск меняет навсегда»" },
+        { image: "/images/projects/youtravel-me/kv-nastoyashchiy.png", width: 1158, height: 482, alt: "KV «Тот самый момент… когда отпуск настоящий»" },
+        { image: "/images/projects/youtravel-me/kv-stoil.png", width: 1158, height: 482, alt: "KV «Тот самый момент… который точно того стоил»" },
+        { image: "/images/projects/youtravel-me/kv-znakomstva.png", width: 1158, height: 482, alt: "KV «Тот самый момент… когда привозишь из отпуска знакомства»" },
+        { image: "/images/projects/youtravel-me/kv-otpustit.png", width: 1158, height: 482, alt: "KV «Тот самый момент… когда можно всё отпустить»" },
+        { image: "/images/projects/youtravel-me/kv-voobrazhenie.png", width: 1158, height: 482, alt: "KV «Тот самый момент… когда отпуск пробуждает воображение»" },
+        { image: "/images/projects/youtravel-me/kv-vasha-istoriya.png", width: 1158, height: 483, alt: "KV «Тот самый момент… который станет вашей историей»" },
+        { image: "/images/projects/youtravel-me/storis-adaptatsii.png", width: 1148, height: 534, alt: "Сторис-адаптации баннеров" },
+      ],
+    },
+  },
+  {
+    slug: "grafit",
+    title: "Графит",
+    category: "айдентика",
+    cardImage: "/images/home/grafit.png",
+    cardWidth: 374,
+    cardHeight: 271,
+    caseContent: {
+      agency: "narrators",
+      descriptionLead: "Фирменный стиль для нового жилого комплекса\n\n**Суть бренда:**",
+      descriptionLeft:
+        "Это новый формат городского жителя — новая техническая интеллигенция, выбирающая центр не ради статуса, а ради точности, качества и спокойной, защищённой жизни. Центр, собранный как проект. Центр, созданный для будущего.",
+      descriptionRight:
+        "В основе фирменного стиля строгая геометрия, точная типографика, модульная сетка и конструктивные элементы. Технические акценты подчёркивают функциональность и системность бренда, а сдержанная цветовая палитра, пространство и статичные образы делают коммуникацию спокойной и уверенной.",
+      sections: [
+        { image: "/images/projects/grafit/logotip-tisnenie.png", width: 1160, height: 653, alt: "Логотип, тиснение" },
+        { image: "/images/projects/grafit/billboard-start-prodazh.png", width: 1160, height: 653, alt: "Билборд «Старт продаж»" },
+        { image: "/images/projects/grafit/buklet.png", width: 1161, height: 653, alt: "Буклет" },
+        { image: "/images/projects/grafit/tsvetovye-varianty.png", width: 1161, height: 613, alt: "Цветовые варианты айдентики" },
+        { image: "/images/projects/grafit/vizitka.png", width: 1160, height: 652, alt: "Визитка" },
+        { image: "/images/projects/grafit/merch-i-navigatsiya.png", width: 1166, height: 656, alt: "Мерч и навигация" },
+        { image: "/images/projects/grafit/buklet-s-interyerami.png", width: 1166, height: 656, alt: "Буклет с интерьерами" },
+        { image: "/images/projects/grafit/termostakan-i-birka.png", width: 1166, height: 656, alt: "Мерч — термостакан и табличка на дверь" },
+      ],
+    },
+  },
+  {
+    slug: "random-projects",
+    title: "Random Projects",
+    category: "",
+    cardImage: "/images/home/random-projects.png",
+    cardWidth: 374,
+    cardHeight: 271,
+    caseContent: {
+      descriptionLeft: "Key Visuals, не вошедшие в проекты",
+      sections: [
+        { image: "/images/projects/random-projects/yandex-27-big-birthday-mashup.png", width: 1160, height: 653, alt: "Yandex 27 — Big Birthday Mashup KV" },
+        { image: "/images/projects/random-projects/sberdevices-na-svyazi.png", width: 1160, height: 653, alt: "SberDevices — «На связи» KV" },
+        { image: "/images/projects/random-projects/sberdevices-trendorium.png", width: 1159, height: 652, alt: "SberDevices — «Трендориум» KV" },
+        { image: "/images/projects/random-projects/sberdevices-flows.png", width: 1161, height: 653, alt: "SberDevices — «Flows» KV" },
+        { image: "/images/projects/random-projects/tatneft-kv-prilozheniya.png", width: 1158, height: 651, alt: "Татнефть — KV мобильного приложения «Зелёный свет вкусным скидкам»" },
+        { image: "/images/projects/random-projects/belaya-dacha-v-poryadke-ovoshchey.png", width: 1159, height: 652, alt: "Белая Дача — «В порядке овощей»" },
+        { text: "Presentation" },
+        { image: "/images/projects/random-projects/prezentatsiya-mediastrategiya.png", width: 1156, height: 496, alt: "Презентация — медиастратегия" },
+      ],
+    },
+  },
+];
+
+export function getProjectBySlug(slug: string): Project | undefined {
+  return PROJECTS.find((project) => project.slug === slug);
+}
+
+/** Neighbouring projects in list order, wrapping around at both ends. */
+export function getAdjacentProjects(slug: string): { previous: Project; next: Project } {
+  const index = PROJECTS.findIndex((project) => project.slug === slug);
+  const count = PROJECTS.length;
+  return {
+    previous: PROJECTS[(index - 1 + count) % count],
+    next: PROJECTS[(index + 1) % count],
+  };
+}
